@@ -1,39 +1,21 @@
-import React, { useRef, useEffect } from "react";
+import React from "react";
 import ReactDOM from "react-dom";
+import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 
-// import placeHeader from "solidfunds/Header";
-import placeFooter from "solidfunds/Footer";
-import Header from "./Header";
-import placeListing from "solidfunds/FundListing";
+import FavFunds from "reactfunds/FavFunds";
 
 import "./index.css";
-import { addFundFavs } from "./fundsService";
-// import { getFundFavs } from "./fundsService";
-// import { getFundsList } from "./fundsService";
+import OnboardContent from "./OnboardContent";
 
 const App = () => {
-  // const headerRef = useRef(null);
-  const footerRef = useRef(null);
-  const listingRef = useRef(null);
-
-  useEffect(() => {
-    // if (listingRef.current) {
-    //   placeListing(listingRef.current);
-    // }
-    if (listingRef.current) {
-      placeListing(listingRef.current);
-    }
-    if (footerRef.current) {
-      placeFooter(footerRef.current);
-    }
-    // addFundFavs("IE0032126645").then((list) => console.log(list));
-  }, []);
   return (
     <div className="container">
-      <Header />
-      {/*<div style={{ width: "100%" }} ref={headerRef}></div>*/}
-      <div style={{ width: "100%" }} ref={listingRef}></div>
-      <div style={{ width: "100%" }} ref={footerRef}></div>
+      <BrowserRouter>
+        <Switch>
+          <Route exact path="/" component={OnboardContent} />
+          <Route exact path="/favs" component={FavFunds} />
+        </Switch>
+      </BrowserRouter>
     </div>
   );
 };

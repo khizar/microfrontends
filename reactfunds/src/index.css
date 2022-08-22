@@ -14,6 +14,18 @@ body {
   overflow: hidden;
 }
 
-.link {
-  font-size: 18px;
+.funds-table {
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+  font-size: 22px;
 }
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  border: 1px solid lightgray;
+}
+
+
